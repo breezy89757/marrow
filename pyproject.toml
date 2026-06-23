@@ -1,0 +1,29 @@
+[project]
+name = "marrow-proxy"
+version = "0.1.0"
+description = "A lightweight team knowledge injection proxy for AI coding agents"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.100.0",
+    "uvicorn>=0.20.0",
+    "httpx>=0.24.0",
+    "click>=8.0.0",
+    "pydantic>=2.0.0",
+    "mcp>=1.0.0",
+]
+
+[project.scripts]
+marrow = "marrow.cli:cli"
+
+[tool.hatch.build.targets.wheel]
+packages = ["marrow"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=7.0.0",
+]
